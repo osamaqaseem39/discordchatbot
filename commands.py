@@ -140,14 +140,14 @@ class GeneralCommands(commands.Cog):
             CHANNEL_CONFIG['allowed_channels'].append(channel.id)
         
         embed = discord.Embed(
-            title="✅ Channel Configured",
-            description=f"Bot is now restricted to {channel.mention}\n\nUsers can:\n• Use commands with `!` prefix\n• Ask questions naturally (I'll respond to questions about Amazon FBA)\n• Mention me to get my attention",
+            title="✅ Salon configuré",
+            description="Le bot est maintenant limité au salon {channel.mention}\n\nLes utilisateurs peuvent :\n• Utiliser des commandes avec le préfixe !\n• Poser des questions naturellement (je répondrai aux questions sur Amazon FBA)\n• Me mentionner pour attirer mon attention",
             color=BOT_CONFIG['embed_color']
         )
         
         embed.add_field(
-            name="💬 Conversation Mode",
-            value="I'll respond to natural questions about Amazon FBA without needing commands!",
+            name="💬 Mode Conversation",
+            value="Je répondrai aux questions naturelles sur Amazon FBA sans avoir besoin de commandes !",
             inline=False
         )
         
