@@ -205,10 +205,10 @@ async def handle_natural_conversation(message):
             if bot.user.mentioned_in(message):
                 content = content.replace(f'<@{bot.user.id}>', '').strip()
             
-            # Add instruction to limit answer length
+            # Add instruction to limit answer length and require French
             prompt = (
                 f"L'utilisateur a demandé : {content}. Fournissez une réponse utile liée à Amazon FBA. "
-                f"Veuillez répondre en moins de 1000 caractères ou 150 mots."
+                f"Veuillez répondre uniquement en français, en moins de 1000 caractères ou 150 mots. Répondez uniquement en français."
             )
             
             # Get AI response for natural conversation
