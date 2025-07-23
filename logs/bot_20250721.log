@@ -1,0 +1,53 @@
+2025-07-21 08:26:52,240 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 08:26:52,241 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 08:26:52,242 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 08:26:54,835 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 08:26:54,835 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 08:27:11,001 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 08:27:11,002 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 08:27:11,003 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 08:27:15,109 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 08:27:15,109 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 08:29:24,726 - amazon_cashflow_bot - INFO - Command used by wz.vox: !help
+2025-07-21 08:30:26,863 - amazon_cashflow_bot - INFO - Command used by wz.vox: !profit
+2025-07-21 08:31:35,249 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 08:34:24,631 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 08:34:24,632 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 08:34:24,633 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 08:34:27,481 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 08:34:27,482 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 08:38:26,977 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 08:38:26,986 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 08:38:26,988 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 08:38:29,525 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 08:38:29,526 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 08:39:02,745 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 08:39:02,753 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 08:39:02,755 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 08:39:05,381 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 08:39:05,381 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 09:26:54,002 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 09:26:54,012 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 09:26:54,014 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 09:26:56,731 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 09:26:56,731 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 09:53:21,907 - amazon_cashflow_bot - INFO - Command used by aca_amazon: !setchannel
+2025-07-21 09:53:45,818 - amazon_cashflow_bot - INFO - Command used by aca_amazon: !hi
+2025-07-21 09:54:15,196 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 09:54:15,200 - amazon_cashflow_bot.response_cache - INFO - Cached response for prompt: User asked: hi what are amazon fa. Provide a helpf...
+2025-07-21 09:54:59,486 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 09:54:59,491 - amazon_cashflow_bot.response_cache - INFO - Cached response for prompt: User asked: what is amazon fba. Provide a helpful ...
+2025-07-21 09:55:28,714 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 09:55:28,718 - amazon_cashflow_bot.response_cache - INFO - Cached response for prompt: User asked: what i can learn in this channel. Prov...
+2025-07-21 09:56:23,502 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 09:56:23,505 - amazon_cashflow_bot.response_cache - INFO - Cached response for prompt: User asked: what is amazon lambda. Provide a helpf...
+2025-07-21 11:50:50,612 - amazon_cashflow_bot - INFO - Logging system initialized
+2025-07-21 11:50:50,620 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-21 11:50:50,622 - amazon_cashflow_bot.commands - INFO - All command cogs loaded successfully
+2025-07-21 11:50:53,324 - amazon_cashflow_bot - INFO - Amazon Cashflow Academy#0331 has connected to Discord!
+2025-07-21 11:50:53,325 - amazon_cashflow_bot - INFO - Bot is active in 1 guilds
+2025-07-21 11:52:30,218 - amazon_cashflow_bot - INFO - Command used by aca_amazon: !setchannel
+2025-07-21 11:58:11,876 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 11:58:11,881 - amazon_cashflow_bot.response_cache - INFO - Cached response for prompt: User asked: amazon. Provide a helpful Amazon FBA r...
+2025-07-21 11:58:40,177 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 11:58:40,180 - amazon_cashflow_bot.response_cache - INFO - Cached response for prompt: User asked: amazon virtual assitant. Provide a hel...
