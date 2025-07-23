@@ -205,9 +205,15 @@ async def handle_natural_conversation(message):
             if bot.user.mentioned_in(message):
                 content = content.replace(f'<@{bot.user.id}>', '').strip()
             
+            # Add instruction to limit answer length
+            prompt = (
+                f"User asked: {content}. Provide a helpful Amazon FBA related response. "
+                f"Please answer in no more than 1000 characters or 150 words."
+            )
+            
             # Get AI response for natural conversation
             response = await openai_service.get_educational_response(
-                f"User asked: {content}. Provide a helpful Amazon FBA related response.", 
+                prompt, 
                 "conversation"
             )
             
