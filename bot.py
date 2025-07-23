@@ -34,13 +34,13 @@ bot = commands.Bot(
 @bot.event
 async def on_ready():
     """Event triggered when bot is ready"""
-    logger.info(f'{bot.user} has connected to Discord!')
-    logger.info(f'Bot is active in {len(bot.guilds)} guilds')
+    logger.info(f'{bot.user} s\'est connecté à Discord!')
+    logger.info(f'Le bot est actif dans {len(bot.guilds)} serveurs')
     
     # Set bot status
     activity = discord.Activity(
         type=discord.ActivityType.watching,
-        name="Amazon FBA strategies | !help"
+        name="Stratégies Amazon FBA | !help"
     )
     await bot.change_presence(activity=activity)
 
@@ -49,30 +49,30 @@ async def on_command_error(ctx, error):
     """Global error handler"""
     if isinstance(error, commands.CommandNotFound):
         embed = discord.Embed(
-            title="❌ Command Not Found",
-            description=f"Command `{ctx.message.content.split()[0]}` not recognized. Use `!help` for available commands.",
+            title="❌ Commande introuvable",
+            description=f"La commande `{ctx.message.content.split()[0]}` n'est pas reconnue. Utilisez `!help` pour voir les commandes disponibles.",
             color=0xff6b6b
         )
         await ctx.send(embed=embed)
     elif isinstance(error, commands.MissingRequiredArgument):
         embed = discord.Embed(
-            title="❌ Missing Arguments",
-            description=f"Missing required argument: `{error.param.name}`. Use `!help {ctx.command}` for usage info.",
+            title="❌ Argument manquant",
+            description=f"Argument requis manquant : `{error.param.name}`. Utilisez `!help {ctx.command}` pour plus d'informations.",
             color=0xff6b6b
         )
         await ctx.send(embed=embed)
     elif isinstance(error, commands.CommandOnCooldown):
         embed = discord.Embed(
-            title="⏰ Command on Cooldown",
-            description=f"Please wait {error.retry_after:.1f} seconds before using this command again.",
+            title="⏰ Commande en cooldown",
+            description=f"Veuillez attendre {error.retry_after:.1f} secondes avant de réutiliser cette commande.",
             color=0xffa726
         )
         await ctx.send(embed=embed)
     else:
-        logger.error(f"Unhandled error in command {ctx.command}: {error}")
+        logger.error(f"Erreur non gérée dans la commande {ctx.command}: {error}")
         embed = discord.Embed(
-            title="❌ An Error Occurred",
-            description="Something went wrong while processing your request. Please try again later.",
+            title="❌ Une erreur est survenue",
+            description="Une erreur s'est produite lors du traitement de votre demande. Veuillez réessayer plus tard.",
             color=0xff6b6b
         )
         await ctx.send(embed=embed)
@@ -85,12 +85,12 @@ def is_allowed_channel(channel_id):
 
 # --- Verification Bot Logic ---
 VERIFICATION_CHANNEL_NAME = 'verify'
-VERIFIED_ROLE_NAME = 'Verified'
+VERIFIED_ROLE_NAME = 'Vérifié'
 QUESTIONS = [
-    ("interest", "What interests you most about Amazon FBA?"),
-    ("experience", "Have you tried Amazon FBA before?"),
-    ("challenge", "What’s your biggest challenge with FBA right now?"),
-    ("status", "Are you currently selling, or just researching?")
+    ("interest", "Qu'est-ce qui vous intéresse le plus dans Amazon FBA ?"),
+    ("experience", "Avez-vous déjà essayé Amazon FBA ?"),
+    ("challenge", "Quel est votre plus grand défi avec FBA en ce moment ?"),
+    ("status", "Vendez-vous actuellement ou êtes-vous en phase de recherche ?")
 ]
 
 pending_verifications = {}  # user_id: { 'step': int, 'answers': {key: answer}, 'message_ids': [int] }
@@ -100,11 +100,11 @@ async def on_member_join(member):
     # Find the verification channel
     channel = discord.utils.get(member.guild.text_channels, name=VERIFICATION_CHANNEL_NAME)
     if not channel:
-        logger.error(f"Verification channel '{VERIFICATION_CHANNEL_NAME}' not found.")
+        logger.error(f"Le canal de vérification '{VERIFICATION_CHANNEL_NAME}' est introuvable.")
         return
     # Start verification process
     mention = member.mention
-    msg = await channel.send(f"Welcome {mention}! Please answer the following questions to get verified.")
+    msg = await channel.send(f"Bienvenue {mention} ! Merci de répondre aux questions suivantes pour être vérifié(e).")
     # Ask the first question
     q_key, q_text = QUESTIONS[0]
     q_msg = await channel.send(f"{mention} {q_text}")
@@ -130,7 +130,7 @@ async def on_message(message):
     
     # Log user interactions
     if message.content.startswith(BOT_CONFIG['prefix']):
-        logger.info(f"Command used by {message.author}: {message.content}")
+        logger.info(f"Commande utilisée par {message.author}: {message.content}")
     
     # Process commands first
     await bot.process_commands(message)
@@ -166,7 +166,7 @@ async def on_message(message):
                 # Assign role
                 role = discord.utils.get(message.guild.roles, name=VERIFIED_ROLE_NAME)
                 if role:
-                    await message.author.add_roles(role, reason="Completed verification")
+                    await message.author.add_roles(role, reason="Vérification complétée")
                 # Gather info
                 join_date = member_join_date_utc(message.author)
                 data = {
@@ -177,9 +177,9 @@ async def on_message(message):
                 }
                 # DM user
                 try:
-                    await message.author.send("You’re now verified! Welcome aboard 🎉")
+                    await message.author.send("Vous êtes maintenant vérifié(e) ! Bienvenue 🎉")
                 except Exception as e:
-                    logger.warning(f"Could not DM user {message.author}: {e}")
+                    logger.warning(f"Impossible d'envoyer un message privé à l'utilisateur {message.author}: {e}")
                 # Send to GoHighLevel webhook
                 webhook_url = os.getenv('GOHIGHLEVEL_WEBHOOK_URL')
                 if webhook_url:
@@ -187,12 +187,12 @@ async def on_message(message):
                         try:
                             await session.post(webhook_url, json=data)
                         except Exception as e:
-                            logger.error(f"Failed to POST verification data: {e}")
+                            logger.error(f"Échec de l'envoi des données de vérification: {e}")
                 else:
-                    logger.error("GOHIGHLEVEL_WEBHOOK_URL not set in environment.")
+                    logger.error("GOHIGHLEVEL_WEBHOOK_URL non défini dans les variables d'environnement.")
                 # Cleanup
                 del pending_verifications[user_id]
-                await message.channel.send(f"{message.author.mention} You are now verified!")
+                await message.channel.send(f"{message.author.mention} Vous êtes maintenant vérifié(e) !")
                 return
             return  # Don't process as command or conversation
 
@@ -207,8 +207,8 @@ async def handle_natural_conversation(message):
             
             # Add instruction to limit answer length
             prompt = (
-                f"User asked: {content}. Provide a helpful Amazon FBA related response. "
-                f"Please answer in no more than 1000 characters or 150 words."
+                f"L'utilisateur a demandé : {content}. Fournissez une réponse utile liée à Amazon FBA. "
+                f"Veuillez répondre en moins de 1000 caractères ou 150 mots."
             )
             
             # Get AI response for natural conversation
@@ -222,8 +222,8 @@ async def handle_natural_conversation(message):
             await message.reply(trimmed_response)
             
     except Exception as e:
-        logger.error(f"Error in natural conversation: {e}")
-        await message.reply("Sorry, I couldn't process your question right now. Try using a command like `!help` instead.")
+        logger.error(f"Erreur dans la conversation naturelle: {e}")
+        await message.reply("Désolé, je ne peux pas traiter votre question pour le moment. Essayez d'utiliser une commande comme `!help`.")
 
 async def main():
     """Main function to start the bot"""
@@ -234,15 +234,15 @@ async def main():
         # Get Discord token
         token = os.getenv('DISCORD_TOKEN')
         if not token:
-            logger.error("DISCORD_TOKEN not found in environment variables")
+            logger.error("DISCORD_TOKEN non trouvé dans les variables d'environnement")
             return
         
         try:
             await bot.start(token)
         except discord.LoginFailure:
-            logger.error("Invalid Discord token provided")
+            logger.error("Jeton Discord invalide fourni")
         except Exception as e:
-            logger.error(f"Failed to start bot: {e}")
+            logger.error(f"Échec du démarrage du bot: {e}")
 
 def member_join_date_utc(member):
     # Returns ISO 8601 UTC join date
@@ -254,6 +254,6 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logger.info("Bot shutdown by user")
+        logger.info("Bot arrêté par l'utilisateur")
     except Exception as e:
-        logger.error(f"Critical error: {e}")
+        logger.error(f"Erreur critique: {e}")
